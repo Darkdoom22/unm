@@ -2,7 +2,7 @@
 
 _addon.name = 'UNM'
 _addon.author = 'Darkdoom'
-_addon.version = '1.9'
+_addon.version = '1.9.1'
 _addon.command = 'unm'
 _addon.commands = {'start', 'stop'}
 _addon.language = 'english'
@@ -375,7 +375,17 @@ function check()
 			
 			end
 				
-					//
+					
+		if target and target.name ~= "Ethereal Junction" then
+        windower.send_command('setkey tab down')
+        coroutine.sleep(0.5)
+        windower.send_command('setkey tab up')
+        coroutine.sleep(0.5)
+        Search()
+            elseif target and target.name == "Ethereal Junction" then
+            poke()
+            end
+					
 		
 		--If target is none or not a UNM then tell user we will escape to clear and redo check()			
 		windower.add_to_chat(167, 'Invalid target. Escaping and rechecking.')
